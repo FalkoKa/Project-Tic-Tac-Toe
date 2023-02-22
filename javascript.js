@@ -2,7 +2,8 @@
 const fields = document.querySelectorAll('.field');
 const btnRestart = document.querySelector('button');
 const messageElement = document.querySelector('.message');
-const span = document.querySelector('span');
+const colorPicker = document.querySelector('input');
+const span = document.querySelector('.name-span');
 const audioPlayerX = new Audio('./sounds/blop.wav');
 const audioPlayerY = new Audio('./sounds/blub.mp3');
 
@@ -187,5 +188,12 @@ btnRestart.addEventListener('click', () => {
   );
 });
 
+colorPicker.addEventListener('change', (e) => {
+  console.log(e.target.value);
+  console.log(fields);
+  fields.forEach((field) => {
+    field.style.cssText = `background-color: ${e.target.value};`;
+  });
+});
 // INITIALIZE GAME
 span.textContent = gameLogic.getName();
