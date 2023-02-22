@@ -1,9 +1,9 @@
 const playerX = {
-  sign: X,
+  sign: 'X',
 };
 
 const playerY = {
-  sign: Y,
+  sign: 'Y',
 };
 
 const gameboard = {
@@ -19,6 +19,10 @@ const gameboard = {
     }
   },
 };
+
+const domManipulation {
+
+}
 
 const fields = document.querySelectorAll('.field');
 
