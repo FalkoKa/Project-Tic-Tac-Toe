@@ -45,14 +45,25 @@ const domManipulation = {
 };
 
 const gameLogic = {
-  playerX = {
+  gameover: false,
+  round: 1,
+
+  playerX: {
     name: 'Player X',
     sign: 'X',
   },
-  
-  playerY = {
+
+  playerY: {
     name: 'Player Y',
     sign: 'Y',
+  },
+
+  getTurn() {},
+
+  checkWincondition() {},
+
+  getGameStatus() {
+    return gameLogic.gameover;
   },
 };
 
