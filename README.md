@@ -14,6 +14,7 @@
 - add player names
 - add sound ✅
 - add emojies instead of X and O 🍔
+- add animations ✅
 
 ## PSEUDOCODE
 

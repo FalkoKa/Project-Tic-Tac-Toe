@@ -24,7 +24,11 @@ const gameboard = {
 // UI
 const domManipulation = {
   renderMark(index, sign) {
-    fields[index].textContent = sign;
+    const span = document.createElement('span');
+    span.textContent = sign;
+    span.classList.add('animate__animated');
+    span.classList.add('animate__bounce');
+    fields[index].append(span);
   },
 
   resetFields() {
@@ -59,7 +63,6 @@ const domManipulation = {
     } else {
       audioPlayerY.play();
     }
-
     gameLogic[player].indices.push(index);
     gameboard.setField(index, sign);
     domManipulation.renderMark(index, symbol);
