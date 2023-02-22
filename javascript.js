@@ -189,10 +189,21 @@ btnRestart.addEventListener('click', () => {
 });
 
 colorPicker.addEventListener('input', (e) => {
+  // btnRestart.style.cssText = `color: rgba(${randomRGB()}, 1); background-color: rgba(${randomRGB()}, 1);`;
+
   document.body.style.backgroundColor = e.target.value;
   fields.forEach((field) => {
     field.style.cssText = `background-color: ${e.target.value};`;
   });
 });
+
+function randomRGB() {
+  const randomR = Math.floor(Math.random() * 250);
+  const randomG = Math.floor(Math.random() * 250);
+  const randomB = Math.floor(Math.random() * 250);
+  return `${randomR}, ${randomG}, ${randomB}`;
+  return Math.floor(Math.random() * 250);
+}
+
 // INITIALIZE GAME
 span.textContent = gameLogic.getName();
