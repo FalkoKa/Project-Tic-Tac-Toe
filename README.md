@@ -12,7 +12,7 @@
 
 - color picker for background theme
 - add player names
-- add sound :check:
+- add sound ✅
 - add emojies instead of X and O 🍔
 
 ## PSEUDOCODE
