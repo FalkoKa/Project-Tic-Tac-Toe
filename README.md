@@ -1,6 +1,6 @@
 # README
 
-Live Link
+[Live Link](https://falkoka.github.io/Project-Tic-Tac-Toe/)
 
 ## Technologies used
 
