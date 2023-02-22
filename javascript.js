@@ -206,3 +206,8 @@ function randomRGB() {
 
 // INITIALIZE GAME
 span.textContent = gameLogic.getName();
+
+// event listener pageload
+// initially main content display = none
+// show form to enter names
+// event listener submit -> main display: block, form display none
