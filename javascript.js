@@ -43,7 +43,7 @@ const domManipulation = {
     if (gameLogic.getGameStatus() || event.target.textContent !== '') return;
     let index = event.target.dataset.num;
     let sign = gameLogic.getTurn();
-    console.log(index);
+
     gameLogic.playRound();
     gameboard.setField(index, sign);
     domManipulation.renderMark(index, sign);
@@ -66,17 +66,15 @@ const gameLogic = {
 
   getTurn() {
     if (gameLogic.round % 2 === 1) {
-      console.log(gameLogic.playerX.sign);
       return gameLogic.playerX.sign;
     } else {
-      console.log(gameLogic.playerO.sign);
       return gameLogic.playerO.sign;
     }
   },
 
   playRound() {
     gameLogic.round++;
-    return gameLogic.getTurn();
+    gameLogic.getTurn();
   },
 
   checkWincondition() {},
