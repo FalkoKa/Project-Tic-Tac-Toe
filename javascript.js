@@ -108,7 +108,9 @@ const gameLogic = {
       [2, 4, 6],
     ];
 
-    // if
+    // if playerX.indices or playerY.indices match any combination of winconditions
+    // then win = true
+    // else win = false
     // return win;
   },
 
