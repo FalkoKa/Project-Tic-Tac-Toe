@@ -17,7 +17,9 @@
     </header>
 
     <main>
-      <p class="message">Welcome! <span></span>, make the first move!</p>
+      <p class="message">
+        Welcome! <span class="name-span"></span>, make the first move!
+      </p>
       <div class="gameboard">
         <div class="field" data-num="0"></div>
         <div class="field" data-num="1"></div>
@@ -30,6 +32,10 @@
         <div class="field" data-num="8"></div>
       </div>
       <button>RESTART GAME</button>
+      <div class="color-theme">
+        <input type="color" name="color" id="color" value="#ffffff" />
+        <label for="color">Pick a background color for the gameboard!</label>
+      </div>
     </main>
     <script src="javascript.js"></script>
   </body>
