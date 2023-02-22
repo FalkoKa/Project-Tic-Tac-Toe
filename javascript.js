@@ -3,6 +3,8 @@ const fields = document.querySelectorAll('.field');
 const btnRestart = document.querySelector('button');
 const messageElement = document.querySelector('.message');
 const span = document.querySelector('span');
+const audioPlayerX = new Audio('./sounds/blop.wav');
+const audioPlayerY = new Audio('./sounds/blub.mp3');
 
 // GAMEBORD
 const gameboard = {
@@ -45,11 +47,19 @@ const domManipulation = {
 
   handleClick(event) {
     if (gameLogic.getGameStatus() || event.target.textContent !== '') return;
+
     let index = Number(event.target.dataset.num);
     let sign = gameLogic.getTurn();
     let player = `player${sign}`;
-    gameLogic[player].indices.push(index);
 
+    // check turn to play sound
+    if (sign === 'X') {
+      audioPlayerX.play();
+    } else {
+      audioPlayerY.play();
+    }
+
+    gameLogic[player].indices.push(index);
     gameboard.setField(index, sign);
     domManipulation.renderMark(index, sign);
     gameLogic.playRound(index);
