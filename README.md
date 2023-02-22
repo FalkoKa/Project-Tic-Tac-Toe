@@ -64,31 +64,37 @@ Live Link
 ### gamelogic object
 
 - Player X
+  - name, sign indices
 - Player O
+  - name, sign, indices
 - gameOver = false
-- round = 1
+- round = 0
 
 - function playerTurn
 
   - if round odd => playerX, else playerY
 
-- checkGameOver(player, index) function
+- playRound function
 
-  - winconditions from array
+  - if round === 8
+  - gameOver = true
+  - display message result = (draw)
+  - else if checkGameover true
+    - gameOver = true
+    - display message result = (winner) X || Y
+  - else
+    - gameover false
+    - round ++
+    - display message announce turn
+
+- checkGameOver() function
+
+  - winconditions
     8 winconditions?
-    - if round === 9
-      - gameOver = true
-      - display message result = (draw)
-    - else if wincondition true (index)
-      - gameOver = true
-      - display message result = (winner) X || Y
-    - else
-      - gameover false
-      - round ++
-      - display message announce turn
+  - if any combo matches the indices of any player, return win = true
 
 - getGameOver function -> return gameover (false or true)
 
 - reset function
   - gameover false
-  - round = 1
+  - round = 0
