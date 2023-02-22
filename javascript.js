@@ -1,3 +1,10 @@
+// DOM ELEMENTS
+const fields = document.querySelectorAll('.field');
+const btnRestart = document.querySelector('button');
+const messageElement = document.querySelector('.message');
+const span = document.querySelector('span');
+
+// GAMEBORD
 const gameboard = {
   board: ['', '', '', '', '', '', '', '', ''],
 
@@ -12,10 +19,7 @@ const gameboard = {
   },
 };
 
-const fields = document.querySelectorAll('.field');
-const btnRestart = document.querySelector('button');
-const messageElement = document.querySelector('.message');
-
+// UI
 const domManipulation = {
   renderMark(index, sign) {
     fields[index].textContent = sign;
@@ -31,7 +35,7 @@ const domManipulation = {
     if (result === 'draw') {
       messageElement.textContent = `It's a draw!`;
     } else {
-      messageElement.textContent = `Player ${result} won!`;
+      messageElement.textContent = `${result} won!`;
     }
   },
 
@@ -52,6 +56,7 @@ const domManipulation = {
   },
 };
 
+// GAME LOGIC
 const gameLogic = {
   gameover: false,
   round: 0,
@@ -76,10 +81,17 @@ const gameLogic = {
     }
   },
 
+  getName() {
+    if (gameLogic.round % 2 === 0) {
+      return gameLogic.playerX.name;
+    } else {
+      return gameLogic.playerO.name;
+    }
+  },
+
   playRound() {
     if (gameLogic.checkWincondition()) {
-      console.log(gameLogic.checkWincondition());
-      domManipulation.announceResult(gameLogic.getTurn());
+      domManipulation.announceResult(gameLogic.getName());
       gameLogic.gameover = true;
       return;
     } else if (gameLogic.round === 8) {
@@ -89,9 +101,7 @@ const gameLogic = {
     }
 
     gameLogic.round++;
-    domManipulation.announceMessage(
-      `It's Player ${gameLogic.getTurn()}'s turn`
-    );
+    domManipulation.announceMessage(`It's ${gameLogic.getName()}'s turn`);
   },
 
   checkWincondition() {
@@ -148,5 +158,10 @@ btnRestart.addEventListener('click', () => {
   gameLogic.reset();
   gameboard.reset();
   domManipulation.resetFields();
-  domManipulation.announceMessage(`It's Player X's turn`);
+  domManipulation.announceMessage(
+    `New GAME! It's ${gameLogic.playerX.name}'s turn`
+  );
 });
+
+// INITIALIZE GAME
+span.textContent = gameLogic.getName();
