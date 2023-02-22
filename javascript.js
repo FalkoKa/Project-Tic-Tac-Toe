@@ -24,7 +24,15 @@ const fields = document.querySelectorAll('.field');
 const btnRestart = document.querySelector('button');
 const messageElement = document.querySelector('.message');
 
-const domManipulation = {};
+const domManipulation = {
+  renderMark(index, sign) {
+    fields[index].textContent = sign;
+  },
+
+  announceResult(player) {
+    messageElement.textContent = `Player ${player} won!`;
+  },
+};
 
 fields.forEach((field) => {
   field.addEventListener('click', handleClick);
