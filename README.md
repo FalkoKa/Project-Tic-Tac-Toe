@@ -12,6 +12,8 @@
 
 - color picker for background theme
 - add player names
+- keep track of multiple game rounds with a win counter
+- add local storage
 - add sound ✅
 - add emojies instead of X and O 🍔
 - add animations ✅
