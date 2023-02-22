@@ -74,8 +74,14 @@ const gameLogic = {
 
   playRound(index) {
     if (gameLogic.round === 8) {
-      domManipulation.announceResult('Draw');
+      domManipulation.announceResult('draw');
+      return;
     }
+
+    if (this.checkWincondition(index)) {
+      domManipulation.announceResult(gameLogic.getTurn());
+    }
+
     gameLogic.round++;
     domManipulation.announceMessage(
       `It's Player ${gameLogic.getTurn()}'s turn`
