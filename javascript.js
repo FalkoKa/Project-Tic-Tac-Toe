@@ -41,8 +41,10 @@ const domManipulation = {
 
   handleClick(event) {
     if (gameLogic.getGameStatus() || event.target.textContent !== '') return;
-    let index = event.target.dataset.num;
+    let index = Number(event.target.dataset.num);
     let sign = gameLogic.getTurn();
+    let player = `player${sign}`;
+    gameLogic[player].indices.push(index);
 
     gameboard.setField(index, sign);
     domManipulation.renderMark(index, sign);
@@ -57,11 +59,13 @@ const gameLogic = {
   playerX: {
     name: 'Player X',
     sign: 'X',
+    indices: [],
   },
 
   playerO: {
     name: 'Player O',
     sign: 'O',
+    indices: [],
   },
 
   getTurn() {
@@ -72,14 +76,16 @@ const gameLogic = {
     }
   },
 
-  playRound(index) {
+  playRound() {
     if (gameLogic.round === 8) {
       domManipulation.announceResult('draw');
+      gameLogic.gameover = true;
       return;
     }
 
-    if (this.checkWincondition(index)) {
+    if (gameLogic.checkWincondition()) {
       domManipulation.announceResult(gameLogic.getTurn());
+      gameLogic.gameover = true;
     }
 
     gameLogic.round++;
@@ -88,7 +94,9 @@ const gameLogic = {
     );
   },
 
-  checkWincondition(index) {
+  checkWincondition() {
+    const playerX = gameLogic.playerX.indices;
+    const playerO = gameLogic.playerO.indices;
     const winconditions = [
       [0, 1, 3],
       [3, 4, 5],
@@ -99,6 +107,9 @@ const gameLogic = {
       [0, 4, 8],
       [2, 4, 6],
     ];
+
+    // if
+    // return win;
   },
 
   getGameStatus() {
@@ -108,6 +119,8 @@ const gameLogic = {
   reset() {
     gameLogic.round = 0;
     gameLogic.gameover = false;
+    gameLogic.playerX.indices = [];
+    gameLogic.playerO.indices = [];
   },
 };
 
