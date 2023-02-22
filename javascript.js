@@ -52,6 +52,12 @@ const domManipulation = {
   },
 };
 
+const gameLogic = {};
+
 fields.forEach((field) => {
-  field.addEventListener('click', handleClick);
+  field.addEventListener('click', domManipulation.handleClick);
+});
+
+btnRestart.addEventListener('click', () => {
+  console.log('... restarting');
 });
