@@ -189,6 +189,7 @@ btnRestart.addEventListener('click', () => {
 });
 
 colorPicker.addEventListener('input', (e) => {
+  document.body.style.backgroundColor = e.target.value;
   fields.forEach((field) => {
     field.style.cssText = `background-color: ${e.target.value};`;
   });
