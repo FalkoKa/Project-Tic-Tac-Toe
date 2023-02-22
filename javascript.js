@@ -51,6 +51,7 @@ const domManipulation = {
     let index = Number(event.target.dataset.num);
     let sign = gameLogic.getTurn();
     let player = `player${sign}`;
+    let symbol = gameLogic.getSymbol();
 
     // check turn to play sound
     if (sign === 'X') {
@@ -61,7 +62,7 @@ const domManipulation = {
 
     gameLogic[player].indices.push(index);
     gameboard.setField(index, sign);
-    domManipulation.renderMark(index, sign);
+    domManipulation.renderMark(index, symbol);
     gameLogic.playRound(index);
   },
 };
@@ -74,12 +75,14 @@ const gameLogic = {
   playerX: {
     name: 'Player X',
     sign: 'X',
+    symbol: '🍔',
     indices: [],
   },
 
   playerO: {
     name: 'Player O',
     sign: 'O',
+    symbol: '🍇',
     indices: [],
   },
 
@@ -96,6 +99,14 @@ const gameLogic = {
       return gameLogic.playerX.name;
     } else {
       return gameLogic.playerO.name;
+    }
+  },
+
+  getSymbol() {
+    if (gameLogic.round % 2 === 0) {
+      return gameLogic.playerX.symbol;
+    } else {
+      return gameLogic.playerO.symbol;
     }
   },
 
