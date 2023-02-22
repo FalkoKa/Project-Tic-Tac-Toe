@@ -29,8 +29,16 @@ const domManipulation = {
     fields[index].textContent = sign;
   },
 
-  announceResult(player) {
-    messageElement.textContent = `Player ${player} won!`;
+  announceResult(result) {
+    if (result === 'draw') {
+      messageElement.textContent = `It's a draw!`;
+    } else {
+      messageElement.textContent = `Player ${result} won!`;
+    }
+  },
+
+  announceMessage(message) {
+    messageElement.textContent = message;
   },
 };
 
