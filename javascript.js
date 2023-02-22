@@ -1,11 +1,3 @@
-const playerX = {
-  sign: 'X',
-};
-
-const playerY = {
-  sign: 'Y',
-};
-
 const gameboard = {
   board: ['', '', '', '', '', '', '', '', ''],
 
@@ -52,7 +44,17 @@ const domManipulation = {
   },
 };
 
-const gameLogic = {};
+const gameLogic = {
+  playerX = {
+    name: 'Player X',
+    sign: 'X',
+  },
+  
+  playerY = {
+    name: 'Player Y',
+    sign: 'Y',
+  },
+};
 
 fields.forEach((field) => {
   field.addEventListener('click', domManipulation.handleClick);
