@@ -40,7 +40,11 @@ const domManipulation = {
   },
 
   handleClick(event) {
-    console.log(event.target.dataset.num);
+    if (gameLogic.getGameStatus() || event.target.textContent !== '') return;
+    let index = event.target.dataset.num;
+    console.log(index);
+    gameLogic.playRound();
+    domManipulation.renderMark(index, 'X');
   },
 };
 
@@ -58,12 +62,29 @@ const gameLogic = {
     sign: 'Y',
   },
 
-  getTurn() {},
+  getTurn(round) {
+    if (round % 2 === 1) {
+      return gameLogic.playerX.sign;
+    } else {
+      return gameLogic.playerY.sign;
+    }
+  },
+
+  playRound() {
+    gameLogic.round++;
+    console.log(gameLogic.round);
+    return gameLogic.getTurn(gameLogic.round);
+  },
 
   checkWincondition() {},
 
   getGameStatus() {
     return gameLogic.gameover;
+  },
+
+  reset() {
+    gameLogic.round = 0;
+    gameLogic.gameover = false;
   },
 };
 
@@ -73,4 +94,8 @@ fields.forEach((field) => {
 
 btnRestart.addEventListener('click', () => {
   console.log('... restarting');
+  gameLogic.reset();
+  gameboard.reset();
+  domManipulation.resetFields();
+  domManipulation.announceMessage(`It's Player X's turn`);
 });
