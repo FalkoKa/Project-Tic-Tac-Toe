@@ -190,7 +190,6 @@ btnRestart.addEventListener('click', () => {
 
 colorPicker.addEventListener('input', (e) => {
   // btnRestart.style.cssText = `color: rgba(${randomRGB()}, 1); background-color: rgba(${randomRGB()}, 1);`;
-
   document.body.style.backgroundColor = e.target.value;
   fields.forEach((field) => {
     field.style.cssText = `background-color: ${e.target.value};`;
