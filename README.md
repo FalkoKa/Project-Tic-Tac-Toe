@@ -10,7 +10,7 @@
 
 ## Implementation Ideas
 
-- color picker for background theme
+- color picker for background theme ✅
 - add player names
 - keep track of multiple game rounds with a win counter
 - add local storage
