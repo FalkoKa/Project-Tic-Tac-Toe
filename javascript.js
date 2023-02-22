@@ -2,8 +2,22 @@ const playerX = {
   sign: X,
 };
 
+const playerY = {
+  sign: Y,
+};
+
 const gameboard = {
-  gameboard: ['', '', '', '', '', '', '', '', ''],
+  board: ['', '', '', '', '', '', '', '', ''],
+
+  setField(index, sign) {
+    gameboard.board[index] = sign;
+  },
+
+  reset() {
+    for (let i = 0; i < gameboard.board.length; i++) {
+      gameboard.board[i] = '';
+    }
+  },
 };
 
 const fields = document.querySelectorAll('.field');
