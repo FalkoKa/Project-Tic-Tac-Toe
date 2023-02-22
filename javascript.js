@@ -29,6 +29,12 @@ const domManipulation = {
     fields[index].textContent = sign;
   },
 
+  resetFields() {
+    fields.forEach((field) => {
+      field.textContent = '';
+    });
+  },
+
   announceResult(result) {
     if (result === 'draw') {
       messageElement.textContent = `It's a draw!`;
