@@ -20,11 +20,11 @@ const gameboard = {
   },
 };
 
-const domManipulation {
-
-}
-
 const fields = document.querySelectorAll('.field');
+const btnRestart = document.querySelector('button');
+const messageElement = document.querySelector('.message');
+
+const domManipulation = {};
 
 fields.forEach((field) => {
   field.addEventListener('click', handleClick);
