@@ -42,38 +42,41 @@ const domManipulation = {
   handleClick(event) {
     if (gameLogic.getGameStatus() || event.target.textContent !== '') return;
     let index = event.target.dataset.num;
+    let sign = gameLogic.getTurn();
     console.log(index);
     gameLogic.playRound();
-    domManipulation.renderMark(index, 'X');
+    gameboard.setField(index, sign);
+    domManipulation.renderMark(index, sign);
   },
 };
 
 const gameLogic = {
   gameover: false,
-  round: 1,
+  round: 0,
 
   playerX: {
     name: 'Player X',
     sign: 'X',
   },
 
-  playerY: {
-    name: 'Player Y',
-    sign: 'Y',
+  playerO: {
+    name: 'Player O',
+    sign: 'O',
   },
 
-  getTurn(round) {
-    if (round % 2 === 1) {
+  getTurn() {
+    if (gameLogic.round % 2 === 1) {
+      console.log(gameLogic.playerX.sign);
       return gameLogic.playerX.sign;
     } else {
-      return gameLogic.playerY.sign;
+      console.log(gameLogic.playerO.sign);
+      return gameLogic.playerO.sign;
     }
   },
 
   playRound() {
     gameLogic.round++;
-    console.log(gameLogic.round);
-    return gameLogic.getTurn(gameLogic.round);
+    return gameLogic.getTurn();
   },
 
   checkWincondition() {},
