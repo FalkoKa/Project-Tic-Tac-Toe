@@ -77,15 +77,15 @@ const gameLogic = {
   },
 
   playRound() {
-    if (gameLogic.round === 8) {
+    if (gameLogic.checkWincondition()) {
+      console.log(gameLogic.checkWincondition());
+      domManipulation.announceResult(gameLogic.getTurn());
+      gameLogic.gameover = true;
+      return;
+    } else if (gameLogic.round === 8) {
       domManipulation.announceResult('draw');
       gameLogic.gameover = true;
       return;
-    }
-
-    if (gameLogic.checkWincondition()) {
-      domManipulation.announceResult(gameLogic.getTurn());
-      gameLogic.gameover = true;
     }
 
     gameLogic.round++;
@@ -99,16 +99,17 @@ const gameLogic = {
     const playerX = gameLogic.playerX.indices;
     const playerO = gameLogic.playerO.indices;
     const winconditions = [
-      [0, 1, 3],
+      [0, 1, 2],
       [3, 4, 5],
       [6, 7, 8],
       [0, 3, 6],
-      [1, 4, 6],
+      [1, 4, 7],
       [2, 5, 8],
       [0, 4, 8],
       [2, 4, 6],
     ];
 
+    // every element of wincon[i] is included in player.indices ? win -> true : false
     for (let i = 0; i < winconditions.length; i++) {
       if (
         winconditions[i].every((element) => {
