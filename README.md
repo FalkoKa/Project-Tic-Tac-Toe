@@ -4,7 +4,9 @@ Live Link
 
 ## Technologies used
 
-![image](https://toppng.com/uploads/preview/html5-js-css3-logo-png-11536003913vd86ju9pc1.png)
+- HTML
+- CSS
+- JAVASCRIPT
 
 ## PSEUDOCODE
 
