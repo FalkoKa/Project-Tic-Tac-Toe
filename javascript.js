@@ -65,7 +65,7 @@ const gameLogic = {
   },
 
   getTurn() {
-    if (gameLogic.round % 2 === 1) {
+    if (gameLogic.round % 2 === 0) {
       return gameLogic.playerX.sign;
     } else {
       return gameLogic.playerO.sign;
@@ -74,7 +74,9 @@ const gameLogic = {
 
   playRound() {
     gameLogic.round++;
-    gameLogic.getTurn();
+    domManipulation.announceMessage(
+      `It's Player ${gameLogic.getTurn()}'s turn`
+    );
   },
 
   checkWincondition() {},
