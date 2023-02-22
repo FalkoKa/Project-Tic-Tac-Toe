@@ -8,6 +8,13 @@ Live Link
 - CSS
 - JAVASCRIPT
 
+## Implementation Ideas
+
+- color picker for background theme
+- add player names
+- add sound
+- add emojies instead of X and O
+
 ## PSEUDOCODE
 
 ### Player object
