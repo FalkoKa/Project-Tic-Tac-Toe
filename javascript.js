@@ -95,6 +95,7 @@ const gameLogic = {
   },
 
   checkWincondition() {
+    let win = false;
     const playerX = gameLogic.playerX.indices;
     const playerO = gameLogic.playerO.indices;
     const winconditions = [
@@ -108,10 +109,21 @@ const gameLogic = {
       [2, 4, 6],
     ];
 
-    // if playerX.indices or playerY.indices match any combination of winconditions
-    // then win = true
-    // else win = false
-    // return win;
+    for (let i = 0; i < winconditions.length; i++) {
+      if (
+        winconditions[i].every((element) => {
+          return playerX.includes(element);
+        }) ||
+        winconditions[i].every((element) => {
+          return playerO.includes(element);
+        })
+      ) {
+        return (win = true);
+      } else {
+        win = false;
+      }
+    }
+    return win;
   },
 
   getGameStatus() {
