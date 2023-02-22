@@ -46,12 +46,12 @@ const domManipulation = {
   announceMessage(message) {
     messageElement.textContent = message;
   },
+
+  handleClick(event) {
+    console.log(event.target.dataset.num);
+  },
 };
 
 fields.forEach((field) => {
   field.addEventListener('click', handleClick);
 });
-
-function handleClick(event) {
-  console.log(event.target.dataset.num);
-}
