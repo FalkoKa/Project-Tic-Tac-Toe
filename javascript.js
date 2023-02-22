@@ -44,9 +44,9 @@ const domManipulation = {
     let index = event.target.dataset.num;
     let sign = gameLogic.getTurn();
 
-    gameLogic.playRound();
     gameboard.setField(index, sign);
     domManipulation.renderMark(index, sign);
+    gameLogic.playRound(index);
   },
 };
 
@@ -72,14 +72,28 @@ const gameLogic = {
     }
   },
 
-  playRound() {
+  playRound(index) {
+    if (gameLogic.round === 8) {
+      domManipulation.announceResult('Draw');
+    }
     gameLogic.round++;
     domManipulation.announceMessage(
       `It's Player ${gameLogic.getTurn()}'s turn`
     );
   },
 
-  checkWincondition() {},
+  checkWincondition(index) {
+    const winconditions = [
+      [0, 1, 3],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 6],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+  },
 
   getGameStatus() {
     return gameLogic.gameover;
