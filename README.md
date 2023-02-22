@@ -71,10 +71,10 @@ Live Link
     8 winconditions?
     - if round === 9
       - gameOver = true
-      - display message (tie)
+      - display message result = (draw)
     - else if wincondition true (index)
       - gameOver = true
-      - display message announce winner
+      - display message result = (winner) X || Y
     - else
       - gameover false
       - round ++
