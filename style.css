@@ -87,3 +87,11 @@ button:active {
   background-color: black;
   color: aliceblue;
 }
+
+.color-theme {
+  margin-top: 10px;
+}
+
+label {
+  font-size: 1rem;
+}
