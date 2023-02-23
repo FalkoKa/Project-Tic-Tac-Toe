@@ -199,7 +199,6 @@ const gameLogic = {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  console.log(form.value);
   main.style.display = 'flex';
   formDiv.style.display = 'none';
   domManipulation.getNameFromInput();
