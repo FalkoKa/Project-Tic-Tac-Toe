@@ -234,10 +234,3 @@ colorPicker.addEventListener('input', (e) => {
 //   return `${randomR}, ${randomG}, ${randomB}`;
 //   return Math.floor(Math.random() * 250);
 // }
-
-// INITIALIZE GAME
-
-// event listener pageload
-// initially main content display = none
-// show form to enter names
-// event listener submit -> main display: block, form display none
