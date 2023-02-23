@@ -4,6 +4,9 @@ const btnRestart = document.querySelector('button');
 const messageElement = document.querySelector('.message');
 const colorPicker = document.querySelector('input');
 const span = document.querySelector('.name-span');
+const main = document.querySelector('main');
+const form = document.querySelector('form');
+const formDiv = document.querySelector('.input-form');
 const scoreElement = document.querySelector('.score');
 const audioPlayerX = new Audio('./sounds/blop.wav');
 const audioPlayerY = new Audio('./sounds/blub.mp3');
@@ -69,6 +72,13 @@ const domManipulation = {
     gameboard.setField(index, sign);
     domManipulation.renderMark(index, symbol);
     gameLogic.playRound(index);
+  },
+
+  getNameFromInput() {
+    const namePlayerX = document.querySelector('#playerX').value;
+    const namePlayerO = document.querySelector('#playerO').value;
+    gameLogic.playerX.name = namePlayerX;
+    gameLogic.playerO.name = namePlayerO;
   },
 };
 
@@ -187,6 +197,15 @@ const gameLogic = {
   },
 };
 
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  console.log(form.value);
+  main.style.display = 'flex';
+  formDiv.style.display = 'none';
+  domManipulation.getNameFromInput();
+  span.textContent = gameLogic.getName();
+});
+
 fields.forEach((field) => {
   field.addEventListener('click', domManipulation.handleClick);
 });
@@ -209,16 +228,15 @@ colorPicker.addEventListener('input', (e) => {
   });
 });
 
-function randomRGB() {
-  const randomR = Math.floor(Math.random() * 250);
-  const randomG = Math.floor(Math.random() * 250);
-  const randomB = Math.floor(Math.random() * 250);
-  return `${randomR}, ${randomG}, ${randomB}`;
-  return Math.floor(Math.random() * 250);
-}
+// function randomRGB() {
+//   const randomR = Math.floor(Math.random() * 250);
+//   const randomG = Math.floor(Math.random() * 250);
+//   const randomB = Math.floor(Math.random() * 250);
+//   return `${randomR}, ${randomG}, ${randomB}`;
+//   return Math.floor(Math.random() * 250);
+// }
 
 // INITIALIZE GAME
-span.textContent = gameLogic.getName();
 
 // event listener pageload
 // initially main content display = none
