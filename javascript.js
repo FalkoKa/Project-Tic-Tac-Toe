@@ -4,6 +4,7 @@ const btnRestart = document.querySelector('button');
 const messageElement = document.querySelector('.message');
 const colorPicker = document.querySelector('input');
 const span = document.querySelector('.name-span');
+const scoreElement = document.querySelector('.score');
 const audioPlayerX = new Audio('./sounds/blop.wav');
 const audioPlayerY = new Audio('./sounds/blub.mp3');
 
@@ -81,6 +82,7 @@ const gameLogic = {
     sign: 'X',
     symbol: '🍔',
     indices: [],
+    score: 0,
   },
 
   playerO: {
@@ -88,6 +90,7 @@ const gameLogic = {
     sign: 'O',
     symbol: '🍇',
     indices: [],
+    score: 0,
   },
 
   getTurn() {
@@ -114,9 +117,19 @@ const gameLogic = {
     }
   },
 
+  updateScore(player) {
+    if (player === 'X') {
+      gameLogic.playerX.score++;
+    } else {
+      gameLogic.playerO.score++;
+    }
+    scoreElement.textContent = `${gameLogic.playerX.score} - ${gameLogic.playerO.score} `;
+  },
+
   playRound() {
     if (gameLogic.checkWincondition()) {
       domManipulation.announceResult(gameLogic.getName());
+      gameLogic.updateScore(gameLogic.getTurn());
       gameLogic.gameover = true;
       return;
     } else if (gameLogic.round === 8) {
