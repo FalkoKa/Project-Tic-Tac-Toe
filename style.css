@@ -120,7 +120,7 @@ input {
   font-size: 1.2rem;
 }
 
-input {
+input[type='text'] {
   padding: 10px;
   border: none;
 }
