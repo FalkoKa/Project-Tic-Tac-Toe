@@ -201,6 +201,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   main.style.display = 'flex';
   formDiv.style.display = 'none';
+  console.log(e.target.elements);
   domManipulation.getNameFromInput();
   span.textContent = gameLogic.getName();
 });
